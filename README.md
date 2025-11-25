@@ -5,6 +5,7 @@ This project is my submission for the Cloudflare AI-Powered Application Assignme
 It demonstrates the required components:
 
 ✔️ LLM using Cloudflare Workers AI
+
 ✔️ Workflow & coordination using Cloudflare Workers
 ✔️ User input via a browser-based chat UI
 ✔️ Memory/state using Cloudflare KV
@@ -164,4 +165,5 @@ All assignment criteria are successfully met.
 Rushi
 Cloudflare Assignment Project
 Built using Workers AI, KV, and Cloudflare Pages.
+
 
