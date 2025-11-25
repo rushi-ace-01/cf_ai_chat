@@ -3,7 +3,8 @@
 
 You can try the deployed Cloudflare Worker here:
 
-👉 **https://cf-ai-js-chat.rushikeshgavhane820.workers.dev**
+👉 **[https://cf-ai-js-chat.rushikeshgavhane820.workers.dev](https://delicate-wave-904a.rushikeshgavhane820.workers.dev/)**
+
 `
 
 
@@ -54,6 +55,7 @@ It demonstrates a full AI chat application using:
 | State / Memory | Workers KV |
 | Frontend | HTML + JavaScript |
 | Deployment | Cloudflare Workers + Pages |
+
 
 
 
