@@ -40,3 +40,38 @@ It demonstrates a full AI chat application using:
 ## 🧱 Architecture Diagram
 <!-- This is a code block diagram using ``` -->
 
+---
+
+## 📁 Project Structure
+<!-- Table & code block -->
+
+
+---
+
+## ⚙️ Technologies Used
+<!-- Table using | pipe symbol -->
+
+| Component | Technology |
+|----------|------------|
+| LLM | Llama 3.3 via Workers AI |
+| Backend Workflow | Cloudflare Worker |
+| State / Memory | Workers KV |
+| Frontend | HTML + JavaScript |
+| Deployment | Cloudflare Workers + Pages |
+
+---
+
+## 🧠 How It Works
+<!-- Section header -->
+
+### 1. User sends a message
+From the chat UI:
+
+```js
+fetch(WORKER_URL, {
+  method: "POST",
+  body: JSON.stringify({ message, sessionId })
+})
+
+
+
