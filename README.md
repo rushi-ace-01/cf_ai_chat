@@ -10,34 +10,26 @@ It demonstrates the required components:
 ✔️ Memory/state using Cloudflare KV
 -------
 🚀 Live Components
-Component	Description
-Backend Worker	Handles AI requests, stores memory, exposes API
-Workers AI	Runs Llama 3.3 Instruct model
-KV Storage	Stores chat history per session
-Frontend UI	Simple chat interface (HTML + JS)
+Component	        Description
+--------
+Backend Worker	  Handles AI requests, stores memory, exposes API
+Workers AI	      Runs Llama 3.3 Instruct model
+KV Storage	      Stores chat history per session
+Frontend UI	      Simple chat interface (HTML + JS)
+--------
 🧠 Architecture Overview
-1. Cloudflare Worker (Backend)
-
+**1. Cloudflare Worker (Backend)
 Located in /backend.
-
 The Worker performs:
-
-Accepts POST requests from the chat UI
-
-Extracts message and sessionId
-
-Loads previous messages from KV
-
-Calls Llama 3.3 via Workers AI
-
-Appends response to history
-
-Saves updated conversation in KV
-
-Returns the AI response to the client
+- Accepts POST requests from the chat UI
+- Extracts message and sessionId
+- Loads previous messages from KV
+- Calls Llama 3.3 via Workers AI
+- Appends response to history
+- Saves updated conversation in KV
+- Returns the AI response to the client
 
 It uses:
-
 const aiResponse = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", {
   messages: history
 });
@@ -172,3 +164,4 @@ All assignment criteria are successfully met.
 Rushi
 Cloudflare Assignment Project
 Built using Workers AI, KV, and Cloudflare Pages.
+
