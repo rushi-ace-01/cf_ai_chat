@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cloudflare AI Chat Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    #chat {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      height: 400px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .msg {
+      margin-bottom: 10px;
+    }
+    .msg span.role {
+      font-weight: bold;
+      margin-right: 4px;
+    }
+    .msg.user span.role {
+      color: #007bff;
+    }
+    .msg.assistant span.role {
+      color: #28a745;
+    }
+    #input-area {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    #message {
+      flex: 1;
+      padding: 8px;
+    }
+    #send {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cloudflare AI Chat</h1>
+  <div id="chat"></div>
+  <div id="input-area">
+    <input type="text" id="message" placeholder="Type your message..." />
+    <button id="send">Send</button>
+  </div>
+
+  <script>
+    // 👇👇👇 REPLACE THIS with your real Worker URL
+    const WORKER_URL = "https://cf-ai-js-chat.rushikeshgavhane820.workers.dev";
+
+    // One random session ID per browser tab
+    const sessionId = "sess-" + Math.random().toString(36).slice(2);
+
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("message");
+    const sendBtn = document.getElementById("send");
+
+    function addMessage(role, text) {
+      const div = document.createElement("div");
+      div.className = "msg " + role;
+      div.innerHTML =
+        `<span class="role">${role === "user" ? "You" : "AI"}:</span>` +
+        `<span class="text">${text}</span>`;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      addMessage("user", text);
+      input.value = "";
+      input.focus();
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text, sessionId }),
+        });
+
+        if (!res.ok) {
+          addMessage("assistant", "Error: " + res.status);
+          return;
+        }
+
+        const data = await res.json();
+        addMessage("assistant", data.reply);
+      } catch (err) {
+        console.error(err);
+        addMessage("assistant", "Error talking to server.");
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+</body>
+</html>
