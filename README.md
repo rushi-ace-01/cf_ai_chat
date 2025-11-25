@@ -1,5 +1,11 @@
 # 🌐 Cloudflare AI Chat App
-# (This is a big title — made using a single #)
+## 🌍 Live Demo
+
+You can try the deployed Cloudflare Worker here:
+
+👉 **https://cf-ai-js-chat.rushikeshgavhane820.workers.dev**
+`
+
 
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-orange?logo=cloudflare)
 ![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow?logo=javascript)
@@ -48,6 +54,7 @@ It demonstrates a full AI chat application using:
 | State / Memory | Workers KV |
 | Frontend | HTML + JavaScript |
 | Deployment | Cloudflare Workers + Pages |
+
 
 
 
