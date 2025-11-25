@@ -7,11 +7,17 @@ It demonstrates the required components:
 ✔️ LLM using Cloudflare Workers AI
 
 ✔️ Workflow & coordination using Cloudflare Workers
+
 ✔️ User input via a browser-based chat UI
+
 ✔️ Memory/state using Cloudflare KV
+
 -------
+
 🚀 Live Components
+
 Component	        Description
+
 --------
 Backend Worker	  Handles AI requests, stores memory, exposes API
 Workers AI	      Runs Llama 3.3 Instruct model
@@ -165,5 +171,6 @@ All assignment criteria are successfully met.
 Rushi
 Cloudflare Assignment Project
 Built using Workers AI, KV, and Cloudflare Pages.
+
 
 
