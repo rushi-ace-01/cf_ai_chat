@@ -6,8 +6,11 @@ You can try the deployed Cloudflare Worker here:
 👉 **[https://cf-ai-js-chat.rushikeshgavhane820.workers.dev](https://delicate-wave-904a.rushikeshgavhane820.workers.dev/)**
 
 Just start conversating with the bot, ask questions like:
+
 Hi, how are you?,
+
 What did I just ask you?,
+
 What’s my session id?
 
 
@@ -58,6 +61,7 @@ It demonstrates a full AI chat application using:
 | State / Memory | Workers KV |
 | Frontend | HTML + JavaScript |
 | Deployment | Cloudflare Workers + Pages |
+
 
 
 
